@@ -4,6 +4,8 @@ import 'package:flutter_week_view/src/controller/zoom_controller.dart';
 class DayViewController extends ZoomController {
   /// Called when this controller has been disposed.
   final Function(DayViewController controller)? onDisposed;
+  
+  bool shouldScrollToInitialTime = false;
 
   /// Creates a new day view controller instance.
   DayViewController({
@@ -17,6 +19,10 @@ class DayViewController extends ZoomController {
           maxZoom: maxZoom,
         );
 
+  void scheduleScrollToInitialTime() {
+    shouldScrollToInitialTime = true;
+  }
+  
   @override
   void dispose() {
     super.dispose();
